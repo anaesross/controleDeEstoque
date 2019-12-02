@@ -23,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($listProducts as $product)
+                @forelse($listProducts as $product)
                     <tr class="text-center">
                         <th scope="row">{{ $product->id}}</th>
                         <td>{{ $product->name }}</td>
@@ -38,7 +38,9 @@
                             <a class="btn btn-outline-danger btn-sm" href="/produtos/deletar/{{ $product->id }}">Deletar</a>
                         </td>
                     </tr>
-                @endforeach
+                    @empty
+                    <th class="col-12"><h1>Não tem produtos cadastrados</h1></th>
+                @endforelse
                 </tbody>
             </table>
 
