@@ -28,4 +28,8 @@ Route::post('/produtos/cadastrar', 'ProductController@create');
 
 
 Route::get('/produtos/atualizar/{id?}', 'ProductController@viewFormUpdate'); //mostra a view
-Route::get('/produtos/atualizar', 'ProductController@update'); //envia para o controller para fazer a atualização
+Route::post('/produtos/atualizar', 'ProductController@update'); //envia para o controller para fazer a atualização
+
+Route::get('/produtos', 'ProductController@viewAllProducts');//visualizar os produtos
+
+Route::get('/produtos/deletar/{id?}', 'ProductController@delete'); //deletar produto
