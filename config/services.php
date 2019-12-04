@@ -29,5 +29,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'), //chave que está no .env gerada pela api do google
+        'client_secret' => env('GOOGLE_KEY_SECRET'),//chave que está no .env
+        'redirect' => 'http://localhost:8000/login/google/callback', //OU env(GOOGLE_REDIRECT)
+    ],
 
 ];

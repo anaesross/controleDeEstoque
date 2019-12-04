@@ -51,6 +51,13 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <h3 class="text-center">Ou faça login pelo google:</h3>
+                            <a href="/login/google" class="d-flex justify-content-center align-items-center">
+                                <img width="100" src="img/logo_google.png"/>
+                            </a>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

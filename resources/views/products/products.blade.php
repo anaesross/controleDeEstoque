@@ -23,14 +23,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                @forelse($listProducts as $product)
+                @forelse($listProducts as $product) <!--for com if se a lista estiver vazia ele cai no nao tem produtos cadastrados, senao ele mostra os produtos-->
                     <tr class="text-center">
                         <th scope="row">{{ $product->id}}</th>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->description }}</td>
                         <td>{{ $product->quantity }}</td>
                         <td>R$ {{ $product->price }}</td>
-                        <td>id usuário</td>
+                        <td>{{ $product->user->name }}</td> <!--puxa o nome do usuário-->
                         <td>{{ $product->created_at }}</td>
                         <td>{{ $product->updated_at }}</td>
                         <td>

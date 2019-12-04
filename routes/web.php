@@ -18,18 +18,22 @@ Route::get('/', function () {
 
  
 Auth::routes();
+Route::get('login/google', 'Auth\LoginController@redirectToGoogle'); // login do google
+Route::get('login/google/callback', 'Auth\LoginController@receiveDataGoogle');//rota para pagina depois de logado
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/produtos/cadastrar', 'ProductController@viewForm');
-Route::post('/produtos/cadastrar', 'ProductController@create');
+Route::get('/produtos/cadastrar', 'ProductController@viewForm')->middleware('checkuser');
+Route::post('/produtos/cadastrar', 'ProductController@create')->middleware('checkuser');
 
 
-Route::get('/produtos/atualizar/{id?}', 'ProductController@viewFormUpdate'); //mostra a view
-Route::post('/produtos/atualizar', 'ProductController@update'); //envia para o controller para fazer a atualização
+Route::get('/produtos/atualizar/{id?}', 'ProductController@viewFormUpdate')->middleware('checkuser'); //mostra a view
+Route::post('/produtos/atualizar', 'ProductController@update')->middleware('checkuser'); //envia para o controller para fazer a atualização
 
-Route::get('/produtos', 'ProductController@viewAllProducts');//visualizar os produtos
+Route::get('/produtos', 'ProductController@viewAllProducts')->middleware('checkuser');//visualizar os produtos
 
-Route::get('/produtos/deletar/{id?}', 'ProductController@delete'); //deletar produto
+Route::get('/produtos/deletar/{id?}', 'ProductController@delete')->middleware('checkuser'); //deletar produto
+
